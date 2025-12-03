@@ -14,7 +14,6 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# 4️⃣ Train a classification model (Random Forest)
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
@@ -29,10 +28,3 @@ print(classification_report(y_test, y_pred, target_names=iris.target_names))
 
 
 
-
-
-print("Unemployment in India.csv:", df1.shape)
-print("Unemployment_Rate_upto_11_2020.csv:", df2.shape)
-
-# ----------------------------------------------
-# 2️⃣ Clean and standardize both datasets
