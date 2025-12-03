@@ -1,18 +1,15 @@
-[6:23 PM, 11/21/2025] Harini: from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
-
-# 1️⃣ Load the Iris dataset
+ 
 iris = load_iris()
 X = iris.data          # features: sepal & petal measurements
 y = iris.target        # labels: 0=setosa, 1=versicolor, 2=virginica
 
-# 2️⃣ Split into training and testing data (80% train, 20% test)
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# 3️⃣ Feature scaling (optional but good practice)
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
@@ -21,57 +18,19 @@ X_test = scaler.transform(X_test)
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
-# 5️⃣ Predict on test data
+
 y_pred = model.predict(X_test)
 
-# 6️⃣ Evaluate model performance
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {accuracy:.2f}")
 
-# Detailed performance report
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred, target_names=iris.target_names))
-[6:23 PM, 11/21/2025] Harini: # TASK 3: Car Price Prediction with Machine Learning (Using Kaggle Dataset)
 
-# Import required libraries
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-# -------------------------------------
-# Step 1: Load Dataset
-# -------------------------------------
-# Make sure 'Car details v3.csv' is in the same folder as this script
-df = pd.read_csv('Car details v3.csv')
-print("Initial Dataset Shape:", df.shape)
-print(df.head(), "\n")
 
-# -------------------------------------
-# Step 2: Data Cleaning
-# ---…
-[6:23 PM, 11/21/2025] Harini: # TASK 2: Combined Unemployment Analysis (India)
-# ----------------------------------------------
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from statsmodels.tsa.seasonal import seasonal_decompose
 
-# ----------------------------------------------
-# 1️⃣ Load both datasets
-# ----------------------------------------------
-file1 = "Unemployment in India.csv"
-file2 = "Unemployment_Rate_upto_11_2020.csv"
-
-df1 = pd.read_csv(file1)
-df2 = pd.read_csv(file2)
-
-print("✅ Files loaded successfully!")
 print("Unemployment in India.csv:", df1.shape)
 print("Unemployment_Rate_upto_11_2020.csv:", df2.shape)
 
